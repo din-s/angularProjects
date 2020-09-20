@@ -1,0 +1,16 @@
+li{
+    float: left;
+    padding-right: 30px;
+    text-transform:uppercase;
+}
+
+nav{
+    float: right;
+}
+ul{
+    list-style-type: none;
+}
+
+.container{
+    background-color: aqua;
+}

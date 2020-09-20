@@ -1,0 +1,13 @@
+<h1>This is task two highlighting app</h1>
+<form formGroupName="selectorForm">
+    <label *ngFor="let c of colors">
+        <input type="radio" name="choice" [(ngModel)]="color" value={{c}}>
+        {{c}}
+    </label>
+</form>
+
+<p 
+*ngFor="let p of para"
+(mouseover)="mouseOver($event)"
+(mouseout)="mouseOut($event)">
+Lorem ipsum dolor sit amet.</p>

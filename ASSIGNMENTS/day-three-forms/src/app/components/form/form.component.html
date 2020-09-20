@@ -1,0 +1,44 @@
+<div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <label for="id"
+        class="dark"
+        (mouseenter)="mouseEnter($event)"
+        (mouseout)="mouseOut($event)"
+        >
+            id
+            <input type="number" formControlName = "id"
+            /> 
+        </label>
+       
+        <label for="gender"
+        [class.dark]="false">
+            gender
+            <input formControlName = "gender"
+            required
+            /> 
+        </label>
+        
+        <div formGroupName ="fullName">
+            <label for="fName">
+                firstName
+                <input formControlName = "firstName"
+                required
+                /> 
+            </label>
+            <label for="mName">
+                middleName
+                <input formControlName = "middleName"
+                /> 
+            </label>
+            <label for="lName">
+                lastName
+                <input formControlName = "lastName"
+                required
+                /> 
+            </label>
+            
+        </div>
+            <button type="submit" [disabled]="!profileForm.valid">Add profile</button>
+        </form>
+</div>

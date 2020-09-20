@@ -1,0 +1,10 @@
+<h1>This is task 1 App</h1>
+<h3>Traditional Mathematics Topics</h3>
+<div class="topics" *ngFor="let topic of topics | async ; index as i ">
+  <p *ngIf="i%2 === 0" style="background-color: burlywood;">
+    {{topic | uppercase}}
+  </p>
+  <p *ngIf="i%2 !== 0" style="background-color :cornsilk;">
+    {{topic | uppercase}}
+  </p>
+</div>

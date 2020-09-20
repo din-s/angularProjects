@@ -1,0 +1,21 @@
+<table >
+    <th>SR No</th>
+    <th>FirstName</th>
+    <th>MiddleName</th>
+    <th>LastName</th>
+    <th>Gender</th>
+    <th></th>
+    <tr 
+    *ngFor="let row of table ; index as srNo"
+    
+    > 
+        <td>{{srNo+1}}.)</td>
+        <td> {{row.fullName.firstName}} </td>
+        <td> {{row.fullName.middleName ? row.fullName.middleName : '---'}} </td>
+        <td> {{row.fullName.lastName}} </td>
+        <td> {{row.gender}} </td>
+        <td><button (click)="deleteRow(id)">Delete</button></td>
+    </tr>
+</table>
+
+

@@ -1,0 +1,9 @@
+.pending{
+    background-color: darkkhaki;
+}
+.completed{
+    background-color: lawngreen;
+}
+.skipped{
+    background-color: slategrey;
+}
