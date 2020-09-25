@@ -1,0 +1,61 @@
+<h2>We are in the Task three</h2>
+
+<h1><i>Simple Form</i></h1>
+<div class="form-container">
+<form [formGroup] = "registrationForm" (ngSubmit)="onSubmit()">
+    <div >
+        <label for="userName">
+            Username :
+            <input type="text" id="userName" formControlName="userName"
+            placeholder="@example" required>
+        </label>
+    </div>
+
+    <!-- this error messsage area  -->
+    <div *ngIf="userName.invalid && (userName.touched || userName.dirty)">
+        <div *ngIf="userName.errors.doesnotStartsWith">
+            <p class="error-message">userName must start with '@'</p>
+        </div>
+
+        <div *ngIf="userName.errors.userAlreadyExist">
+            <p class="error-message">User already exist</p>
+        </div>
+    </div>
+
+    <div>
+        <label for="emailId">
+            emailID :
+            <input type="text" id="emailId" formControlName="emailId"
+            placeholder="you@example.com" required>
+        </label>
+    </div>
+    <div>
+        <label for="gender">
+            Gender : 
+            <select formControlName="gender" id="">
+                <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label for="password">
+            Password : 
+            <input type="password" id="password" formControlName="password"
+            placeholder="password" required minlength="8">
+        </label>
+    </div>
+
+    <div *ngIf="(password.touched || password.dirty) && password.invalid ">
+        <div *ngIf="password.errors.minlength">
+            <p class="error-message">password must be 8 chars</p>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary " [disabled]="!registrationForm.valid">Register</button>
+</form>
+
+</div>
+
+<div>
+    <h4>Validity check </h4> {{ registrationForm.valid}}
+    <h4>Errors </h4> {{registrationForm.errors | json}}
+</div>

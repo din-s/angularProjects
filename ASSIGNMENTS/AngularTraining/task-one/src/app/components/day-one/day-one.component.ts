@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  TopicsService } from '../../topics.service'
+import { TopicsService} from '../../services/topics.service'
 import { Observable} from 'rxjs'
 @Component({
   selector: 'app-day-one',

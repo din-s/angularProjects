@@ -1,8 +1,8 @@
-<h1>This is task two highlighting app</h1>
-<form formGroupName="selectorForm">
+<h1>This is task two HIGHLIGHTING APP</h1>
+<form [formGroup]="selectorForm">
     <label *ngFor="let c of colors">
-        <input type="radio" name="choice" [(ngModel)]="color" value={{c}}>
-        {{c}}
+        <input type="radio" name="choice" formControlName="choice" value={{c}}>
+        {{c}} &nbsp;&nbsp;
     </label>
 </form>
 
