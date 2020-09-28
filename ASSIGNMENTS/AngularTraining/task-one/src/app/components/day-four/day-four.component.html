@@ -1,0 +1,46 @@
+<h3>Login here </h3>
+<div *ngIf="loginForm.errors">
+    <div [hidden]="!loginForm.errors.noMatchFound">i m visible</div>
+</div>
+<form [formGroup]="loginForm" 
+class="form-container"
+(ngSubmit)="onSubmit()"
+>
+<div>
+    <label for="userName">
+        UserName: 
+        <input type="text"
+        id="userName"
+        formControlName="userName"
+        placeholder="@username"
+        required>
+    </label>
+</div>
+
+ <!-- this error messsage area for username  -->
+ <div *ngIf="userName.invalid && (userName.dirty)">
+    <div *ngIf="userName.errors.doesnotStartsWith">
+        <p class="error-message">userName must start with '@'</p>
+    </div>
+
+</div>
+<div>
+    <label for="password">
+        password: 
+        <input type="password" 
+        id="password"
+        formControlName="password"
+        placeholder="password"
+        required>
+    </label>
+</div>
+
+<button type="submit">Login</button>
+</form>
+
+<h4>Not yet registered, <a href="task-three/signup">Register Now!</a></h4>
+
+
+<div *ngIf="loginForm.errors">
+    {{loginForm.errors}}
+</div>

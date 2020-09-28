@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup , FormControl , Validators, AbstractControl } fr
 import { RegistrationService } from '../../services/registration.service'
 
 //importing custom validators
-import { checkFirstCharacter , checkForUniqueUsername} from '../../direactives/registration-validation.directive' 
+import { checkFirstCharacter , checkForUniqueUsername ,checkForUniqueEmail} from '../../direactives/registration-validation.directive' 
 
 
 @Component({
@@ -16,13 +16,13 @@ export class DayThreeComponent implements OnInit {
 
   genders = ['Male', 'Female', 'Other']
   registrationForm:FormGroup 
-  users
+
   constructor(
     private fb : FormBuilder,
     private regisService : RegistrationService
   ) { 
     this.createForm()
-    this.getUsersFromService()
+    
   }
 
   onSubmit(){
@@ -34,24 +34,19 @@ export class DayThreeComponent implements OnInit {
   createForm(){
     this.registrationForm = this.fb.group({
       userName :['', [Validators.required, checkFirstCharacter,checkForUniqueUsername]],
-      emailId: ['', [Validators.required, Validators.email]],
+      emailId: ['', [Validators.required, Validators.email, checkForUniqueEmail]],
       gender : ['',Validators.required],
       password : ['',[Validators.required,Validators.minLength(8)]]
     })  
   }
 
-  getUsersFromService(){
-    this.users =  this.regisService.getLocalStorageData()
-  }
-
-  
-  
+ 
   //getter to be used for error messages
   get userName () {return this.registrationForm.get('userName')}
   get password() { return this.registrationForm.get('password')}
-
+  get emailId(){ return this.registrationForm.get('emailId')}
   ngOnInit(): void {
-      this.users = this.regisService.getLocalStorageData()
+
   }
 
 }

@@ -1,0 +1,11 @@
+table,.controls{
+  margin-top: 40px;
+}
+
+th,td{
+  width:60px;
+  background-color: rgb(212, 241, 166);
+  border-radius: 10px;
+  margin: 5px 5px;
+  padding-left: 4px;
+}

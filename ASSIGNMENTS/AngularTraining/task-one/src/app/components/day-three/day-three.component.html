@@ -1,34 +1,48 @@
 <h2>We are in the Task three</h2>
-
+<h5>
+    Already registered : 
+<a href="/task-three/login">
+<button>Login</button>
+</a>
+</h5>
 <h1><i>Simple Form</i></h1>
 <div class="form-container">
-<form [formGroup] = "registrationForm" (ngSubmit)="onSubmit()">
-    <div >
-        <label for="userName">
-            Username :
-            <input type="text" id="userName" formControlName="userName"
-            placeholder="@example" required>
-        </label>
-    </div>
-
-    <!-- this error messsage area  -->
-    <div *ngIf="userName.invalid && (userName.touched || userName.dirty)">
-        <div *ngIf="userName.errors.doesnotStartsWith">
-            <p class="error-message">userName must start with '@'</p>
+    <form [formGroup] = "registrationForm" (ngSubmit)="onSubmit()">
+        <div >
+            <label for="userName">
+                Username :
+                <input type="text" id="userName" formControlName="userName"
+                placeholder="@example" required>
+            </label>
         </div>
-
-        <div *ngIf="userName.errors.userAlreadyExist">
-            <p class="error-message">User already exist</p>
+        
+        <!-- this error messsage area for username  -->
+        <div *ngIf="userName.invalid && (userName.touched || userName.dirty)">
+            <div *ngIf="userName.errors.doesnotStartsWith">
+                <p class="error-message">userName must start with '@'</p>
+            </div>
+            
+            <div *ngIf="userName.errors.userAlreadyExist">
+                <p class="error-message">User already exist</p>
+            </div>
         </div>
-    </div>
-
-    <div>
-        <label for="emailId">
-            emailID :
-            <input type="text" id="emailId" formControlName="emailId"
-            placeholder="you@example.com" required>
-        </label>
-    </div>
+        
+        <div>
+            <label for="emailId">
+                emailID :
+                <input type="text" id="emailId" formControlName="emailId"
+                placeholder="you@example.com" required>
+            </label>
+        </div>
+        <!-- This is error message area  for Email -->
+        <div *ngIf="emailId.invalid && (emailId.touched || emailId.dirty)">
+            
+            <div *ngIf="emailId.errors.emailAlreadyExist">
+                <p class="error-message">This email already registered</p>
+            </div>
+        </div>
+            
+    
     <div>
         <label for="gender">
             Gender : 
@@ -45,6 +59,7 @@
         </label>
     </div>
 
+    <!-- This error message area  for password -->
     <div *ngIf="(password.touched || password.dirty) && password.invalid ">
         <div *ngIf="password.errors.minlength">
             <p class="error-message">password must be 8 chars</p>
@@ -55,7 +70,4 @@
 
 </div>
 
-<div>
-    <h4>Validity check </h4> {{ registrationForm.valid}}
-    <h4>Errors </h4> {{registrationForm.errors | json}}
-</div>
+

@@ -1,0 +1,22 @@
+<div [hidden]="allUsers" >
+<p>Click below button to get data from API </p>
+<button (click)="getFromApi()" [disabled]="allUsers" class="controls">Get Users▾</button>
+</div>
+
+<div *ngIf="allUsers" class="controls">
+  <button (click)="changeLimits(lowerLimit -5)" [disabled]="!lowerLimit">Prev 5</button> &nbsp; &nbsp; 
+  <button (click)="changeLimits(lowerLimit +5) " [disabled]="lowerLimit === allUsers.length -5 ">Next 5</button> &nbsp; &nbsp; 
+  <button (click)="changeLimits(0)">Reset</button>
+</div>
+<div *ngIf="subsetOfAllUser">
+  <table>
+    <th>Name</th>
+    <th>City</th>
+    <th>Country</th>
+    <tr *ngFor= "let user of subsetOfAllUser">
+      <td> {{user.Name}} </td>
+      <td> {{user.City}} </td>
+      <td> {{user.Country}} </td>
+    </tr>
+  </table>
+</div>

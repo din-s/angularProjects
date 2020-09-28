@@ -13,6 +13,9 @@ import { ContactComponent } from './navComponents/contact/contact.component';
 import { CareersComponent } from './navComponents/careers/careers.component';
 import { DayThreeComponent } from './components/day-three/day-three.component';
 import { RegistrationValidationDirective } from './direactives/registration-validation.directive';
+import { DayFourComponent } from './components/day-four/day-four.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DayFiveComponent } from './components/day-five/day-five.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { RegistrationValidationDirective } from './direactives/registration-vali
     ContactComponent,
     CareersComponent,
     DayThreeComponent,
-    RegistrationValidationDirective
+    RegistrationValidationDirective,
+    DayFourComponent,
+    DashboardComponent,
+    DayFiveComponent
   ],
   imports: [
     BrowserModule,
